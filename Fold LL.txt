@@ -1,0 +1,22 @@
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        if(head->next == NULL){
+            return;
+        }
+        if(head->next->next == NULL){
+            return;
+        }
+        ListNode* temp1 = head;
+        ListNode* temp2 = NULL;
+        while(temp1->next != NULL){
+            temp2 = temp1;
+            temp1 = temp1->next;
+        }
+        ListNode* next_head = head->next;
+        temp1->next = next_head;
+        temp2->next = NULL;
+        head->next = temp1;
+        reorderList(next_head);
+    }
+};

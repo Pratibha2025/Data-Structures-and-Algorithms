@@ -1,0 +1,15 @@
+void reverse(Node* &head){
+    Node* prev=NULL;
+    Node* next=NULL;
+    Node* curr=head;
+    
+    while(curr!=NULL){
+         next = curr->next;
+            // Reverse current node's pointer
+            curr->next = prev;
+            // Move pointers one position ahead.
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+}
